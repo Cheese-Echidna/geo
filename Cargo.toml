@@ -1,0 +1,23 @@
+[package]
+name = "geo"
+version = "0.1.0"
+edition = "2021"
+
+[profile.dev]
+opt-level = 3
+
+
+[dependencies]
+nannou = "0.19.0"
+rayon = "1.8.1"
+num = "0.4.1"
+clap = { version = "4.4.18", features = ["derive"] }
+lazy_static = "1.4.0"
+log = "0.4.20"
+pretty_env_logger = "0.5.0"
+robust = "1.1.0"
+voronator = { path = "../lib/voronator" }
+nannou_egui = "0.19.0"
+palette = "0.7.5"
+image = "0.25.1"
+noise = "0.9.0"
