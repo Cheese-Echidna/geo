@@ -1,4 +1,4 @@
-use crate::*;
+use crate::sketch::*;
 
 pub (crate) fn draw_double_circle(draw: &Draw, location: Vec2, colour: LinSrgb<f32>, size: f32) {
     draw.ellipse()

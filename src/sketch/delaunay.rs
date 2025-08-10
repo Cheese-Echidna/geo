@@ -5,7 +5,7 @@ use nannou::color::{lin_srgb, LinSrgb};
 use nannou::geom::Vec2;
 use robust::orient2d;
 use voronator::VoronoiDiagram;
-use crate::*;
+use crate::sketch::*;
 
 pub fn delaunay_triangulation(app: &App, model: &Model, corners: bool) -> Vec<(Point, Point, Point)> {
     let mut y = model.points.clone();

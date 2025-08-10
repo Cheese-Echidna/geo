@@ -1,4 +1,4 @@
-use crate::*;
+use crate::sketch::*;
 
 pub fn render_perlin(app: &App, model: &Model, draw: &Draw) {
     let boundary = app.window_rect();
@@ -11,7 +11,6 @@ pub fn render_perlin(app: &App, model: &Model, draw: &Draw) {
             let value = tileable_perlin(&model.settings, app, start);
             let angle = value * TAU;
             let colour = colour_from_zero_one(value);
-
 
             let magnitude = radius as f32 * model.settings.perlin_push.value_f32();
             let end = start + magnitude * Vec2::new(angle.cos(), angle.sin());

@@ -1,4 +1,4 @@
-use crate::*;
+use crate::sketch::*;
 
 pub(crate) fn centroid(polygon: &Vec<Vec2>) -> Option<Vec2> {
     let len = polygon.len();

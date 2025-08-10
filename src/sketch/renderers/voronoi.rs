@@ -1,5 +1,5 @@
-use crate::*;
-use crate::delaunay::{delaunay_triangulation, voronoi_diagram};
+use crate::sketch::*;
+use crate::sketch::delaunay::{delaunay_triangulation, voronoi_diagram};
 
 pub(crate) fn render_delaunay(app: &App, model: &Model, draw: &Draw) {
     for (p0, p1, p2) in delaunay_triangulation(app, model, true) {

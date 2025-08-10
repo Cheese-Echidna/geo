@@ -1,12 +1,12 @@
 use nannou::{App, Draw};
-use crate::*;
+use crate::sketch::*;
 
 pub(crate) fn render_point_vectors(_app: &App, model: &Model, draw: &Draw) {
     draw_all_points(draw, model);
     model.points.iter().for_each(|point| {
-        let mov_vec = point.pos - point.last_pos;
+        // let mov_vec = point.pos - point.last_pos;
         draw.arrow()
-            .points(point.pos, point.pos + mov_vec * 50.0)
+            .points(point.pos, point.pos + point.moving_vec * 50.0)
             .weight(2.0)
             .color(point.colour);
     });
@@ -38,7 +38,8 @@ pub(crate) fn render_point_vectors_coloured(app: &App, model: &Model, draw: &Dra
 
     draw_all_points(draw, model);
     model.points.iter().for_each(|point| {
-        let mov_vec = point.pos - point.last_pos;
+        // let mov_vec = point.pos - point.last_pos;
+        let mov_vec = point.moving_vec;
         draw.arrow()
             .points(point.pos, point.pos + mov_vec * 50.0)
             .weight(2.0)

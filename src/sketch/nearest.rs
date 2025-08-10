@@ -1,5 +1,5 @@
 use std::collections::{HashMap, VecDeque};
-use crate::*;
+use crate::sketch::*;
 
 
 pub(crate) fn bfs(edges: Vec<(Point, Point)>) -> (Vec<(Point, Point)>, Vec<(Point, usize)>) {

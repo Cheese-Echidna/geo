@@ -1,10 +1,13 @@
-use crate::*;
+use std::hash::Hasher;
+use crate::sketch::*;
 use image;
 use image::{GenericImageView};
+use nannou_egui::egui::include_image;
 
 #[derive(Copy, Clone, Debug, PartialEq)]
 pub(crate) struct Point {
     pub pos: Vec2,
+    pub moving_vec: Vec2,
     pub colour: LinSrgb<f32>,
     pub id: usize,
     pub starting_location: Vec2,
@@ -28,8 +31,9 @@ impl std::hash::Hash for Point {
 impl Point {
     pub(crate) fn new(pos: Vec2, colour: LinSrgb<f32>) -> Point {
         Point {
-            pos: pos,
-            colour: colour,
+            pos,
+            moving_vec: Vec2::ZERO,
+            colour,
             id: random(),
             starting_location: pos,
             last_pos: pos,
@@ -64,7 +68,7 @@ impl Point {
         let mut points = vec![];
         let max = 50;
         let wh = app.window_rect().wh();
-        let image = image::io::Reader::open(r"puppy_blur.jpg").unwrap().decode().unwrap();
+        let image = image::load_from_memory(include_bytes!("../../puppy_blur.jpg")).unwrap();;
         let image_wh = Vec2::new(image.width() as f32, image.height() as f32);
 
         for y in 0..max {
@@ -99,6 +103,7 @@ impl Point {
                 points.push(Point::new(start + d * IVec2::new(i, j).as_f32(), colour_fn(i, j)))
             }
         }
+
 
         points
     }

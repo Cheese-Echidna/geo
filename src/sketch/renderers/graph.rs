@@ -1,8 +1,8 @@
-use crate::*;
-use crate::delaunay::delaunay_triangulation;
+use crate::sketch::*;
+use crate::sketch::delaunay::delaunay_triangulation;
 
 pub(crate) fn render_mst(app: &App, model: &Model, draw: &Draw) {
-    let edges = crate::delaunay::delaunay_triangulation(app, model, false).iter().flat_map(|x| {
+    let edges = crate::sketch::delaunay::delaunay_triangulation(app, model, false).iter().flat_map(|x| {
         [(x.0, x.1), (x.1, x.2), (x.2, x.0)]
     }).collect::<Vec<(Point, Point)>>();
 

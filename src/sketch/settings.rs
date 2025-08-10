@@ -1,4 +1,4 @@
-use crate::*;
+use crate::sketch::*;
 
 #[derive(Clone, Debug)]
 pub(crate) struct Settings {
